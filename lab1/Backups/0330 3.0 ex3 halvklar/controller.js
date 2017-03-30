@@ -5,10 +5,25 @@ var kth = {lat: 59.347540, lng: 18.0738};
 var pos2 = {lat: 59.347340, lng: 18.073044};
 var humle = {lat:59.339282, lng: 18.072832};
 var erlands = {lat:59.340487 , lng:18.040420};
-var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 
 
-//Basic navigation
+
+//Toggle tilt between 0 and 45 degrees
+function setTilt(){
+  // console.log('hej')
+
+  if (map.tilt==0){
+      //Shorthand if statement - Zoom in for tilt if neccesary
+    map.zoom < 19? map.setZoom(19) : '' ;
+    map.setTilt(45);
+  }
+
+  else{
+    map.setTilt(0);
+  }
+}
+
+
 function moveUp(){
   map.setCenter({lat:map.getCenter().lat()+0.003, lng:map.getCenter().lng()});
   //console.log((1/(*map.getZoom())*0.05));
@@ -27,6 +42,7 @@ function moveRight(){
 }
 
 
+
 function zoomIn(){
   map.setZoom(map.getZoom() + 1);
 }
@@ -36,12 +52,24 @@ function zoomOut(){
 }
 
 
-//Move center of map
+
+function toggleBounce() {
+  // console.log("bounce function running");
+  // console.log(marker);
+  // marker.setAnimation(google.maps.Animation.BOUNCE);
+
+  if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+
+
 function moveCenter(position) {
     map.setCenter(position);
   };
 
-//Show current position
 function showLocation(){
    if (navigator.geolocation) {
      navigator.geolocation.getCurrentPosition(function (position) {
@@ -59,35 +87,8 @@ function showLocation(){
 }
 
 
-//Toggle tilt between 0 and 45 degrees
-function setTilt(){
-
-  if (map.tilt==0){
-    //Shorthand if statement - Zoom in for tilt if neccesary
-    map.zoom < 19? map.setZoom(19) : '' ;
-    map.setMapTypeId('satellite');
-    map.setTilt(45);
-  }
-
-  else{
-    map.setTilt(0);
-    map.setMapTypeId('roadmap');
-  }
-}
 
 
-//Make marker bounce
-function toggleBounce() {
-  if (marker.getAnimation() !== null) {
-    marker.setAnimation(null);
-  } else {
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-  }
-}
-
-
-
-//Google API-buttons
 /**
  * The CenterControl adds a control to the map that recenters the map on
  * Chicago.
@@ -166,8 +167,7 @@ function initMap() {
     map: map,
     draggable: true,
     animation: google.maps.Animation.DROP,
-    title: 'Move me!',
-    icon: iconBase + 'info-i_maps.png'
+    title: 'Move me!'
   });
 
   marker3 = new google.maps.Marker({
@@ -184,7 +184,7 @@ function initMap() {
 
   marker.addListener('click', toggleBounce);
 
-  //Google API BUTTONS
+
   // Create the DIV to hold the control and call the CenterControl()
   // constructor passing in this DIV.
   // var centerControlDiv = document.createElement('div');
@@ -194,7 +194,6 @@ function initMap() {
   // map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 
 
-  //For flashscreen-ish
   setTimeout(displayContent,2000);
 
 }
