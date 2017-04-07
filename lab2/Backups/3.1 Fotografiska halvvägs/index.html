@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=yes,
+		initial-scale=1.0" />
+
+	<title>Relaxation iBeacons</title>
+
+	<style>
+	@import 'page.css';
+	</style>
+
+	<script>
+	// Redirect console if running from Evothings Workbench.
+	if (window.hyper) { console.log = hyper.log }
+	</script>
+</head>
+
+<body>
+
+
+	<div class="my-page" id="page-home">
+		<div class="my-header">
+			<img id="logo" class="my-header-image" src="photos/logo.png" />
+		</div>
+		<div class="my-content">
+
+			<p>Välkommen till vår nya App! </br></br>
+			Genom att utforska utställningarna med hjälp av appen kan du få mer information om både konstnärer och konstverk. Använd utforskarläget och gå nära det konstverk du vill veta mer om.</br></br>Tycker du att något verkar extra intressant kan du spara objektet i dina favoriter eller lämna en kommentar.</p>
+		</div>
+<!-- 		<div class="image-grid">
+			<ol id="list">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ol>
+		</div> -->
+<!-- 		<div id='image-grid-2'>
+			Here the images connected to the ibeacons will show up
+		</div> -->
+	</div>
+
+
+	<div class="my-page" id="page-default">
+		<div class="my-header">
+			<img id="logo" class="my-header-image" src="photos/logo.png" />
+		</div>
+		<div class="my-content">
+			<h1>Gå närmre en tavla</h1>
+		</div>
+	</div>
+
+
+	<div class="my-page" id="page-feet">
+		<div class="my-header">
+			<img class="my-header-image" src="photos/Nilsson1.png" />
+			<img id="addFavorite" src="icons/favorites-icon.png" />
+			<!-- <img class="my-icon-back" src="icons/favorites-icon.png" ontouchend="history.back()" /> -->
+		</div>
+		<div class="my-content">
+			<h1>Lennart Nilsson</h1>
+			<h2>Delar ur utställningen Ett Barn Blir Till</h2>
+			<h3>6 februari — 14 maj, 2017</h3>
+			<p>Han var den som klippte bandet vid invigningen 21 maj 2010 och en av de första att ställa ut på Fotografiska. För det är vi evigt tacksamma. Lennart Nilsson (1922 – 2017), den störste av dem alla har gått bort 94 år gammal, men minnet av hans verk kommer leva vidare många fler år.</p>
+
+			<div class = "commentArea">
+				<h2>Kommentarer</h2>
+				<div class="comments" id="comments1"></div>
+				<textarea class= "textInput" id="myText1" rows="4" placeholder="Skriv en kommentar..."></textarea>
+<!-- 				<input type="text" class="textInput" id="myText1" placeholder="Skriv en kommentar"/> -->
+				<button onclick="myFunction('1')">Skicka</button>
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<div class="my-page" id="page-shoulders">
+		<div class="my-header">
+			<img class="my-header-image" src="photos/Cooper1.png" />
+			<img class="my-icon-back" src="icon-back.png" ontouchend="history.back()" />
+		</div>
+		<div class="my-content">
+			<h1>Cooper and Gorfer</h1>
+			<h2>I Know Not These My Hands</h2>
+			<h3>11 mars — 11 juni, 2017</h3>
+			<p class="text">Den amerikansk-österrikiska duon Cooper & Gorfers värld är lika mycket fiktion som verklighet. Med intrikata fotografiska collage som påminner om drömlika målningar dokumenterar de fjärran platser och folk som de gestaltar i gripande poetiska berättelser. Bilder du aldrig glömmer, nu på Fotografiska.</p>
+
+			<div class="comments" id="comments2"></div>
+			<h1>Kommentarer</h1>
+			<input type="text" class="textInput" id="myText2" placeholder="Skriv en kommentar">
+			<button onclick="myFunction('2')">Skicka</button>
+
+		</div>
+	</div>
+
+
+
+	<div class="my-page" id="page-face">
+		<div class="my-header">
+			<img class="my-header-image" src="photos/Patrick1.png" />
+
+		</div>
+		<div class="my-content">
+			<h1>Patrick Demarchelier</h1>
+			<h2>Lumière</h2>
+			<h3>24 februari — 14 maj, 2017</h3>
+			<p>Världsberömd, respekterad och mycket omtyckt modefotograf ställer ut på Fotografiska med Lumière 23 februari-14 maj. ”Show me the light – and it makes me tick”, säger denna charmerande ständigt nyfikne legendar som ser modellerna som artister och alltid ska ta sitt bästa fotografi i morgon…</p>
+
+			<div class="comments" id="comments3"></div>
+			<input type="text" class="textInput" id="myText3" placeholder="Skriv en kommentar">
+			<button onclick="myFunction('3')">Skicka</button>
+		</div>
+	</div>
+
+
+	<div class="my-page" id="page-favorites">
+		<div class="my-header">
+			<img class="my-header-image" src="photos/Patrick1.png" />
+
+		</div>
+		<div class="my-content">
+			<h1>Patrick Demarchelier</h1>
+			<h2>Lumière</h2>
+			<h3>24 februari — 14 maj, 2017</h3>
+			<p>Favoriter</p>
+
+		</div>
+	</div>
+
+
+	<div id="menu">
+		<div class="menuDiv" id="home">
+				<img class="icon" src="icons/home-icon.png"/>
+		</div>
+
+		<div class="menuDiv" id="explore">
+			<img class="icon" src="icons/explore-icon.png"/>
+		</div>
+
+		<div class="menuDiv" id="favorites">
+			<img class="icon" src="icons/favorites-icon.png"/>
+		</div>
+	</div>
+
+	<script src="lib/jquery.js"></script>
+	<script src="cordova.js"></script>
+	<script src="app.js"></script>
+</body>
+
+
+</html>

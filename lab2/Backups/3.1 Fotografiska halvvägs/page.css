@@ -1,0 +1,183 @@
+html, body
+{
+	margin: 0px;
+	padding: 0px;
+	padding-bottom:50px /*for menu*/
+}
+
+.my-page
+{
+	display: none;
+}
+
+.my-header
+{
+}
+
+.my-header-image
+{
+	width: 100%;
+	height: auto;
+}
+
+.my-icon-back
+{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 12%;
+	height: auto;
+}
+
+#addFavorite
+{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 12%;
+	height: auto;
+}
+
+.my-content
+{
+	margin: 10px 15px;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+/*.my-content h1
+{
+	font-size: 150%;
+}*/
+
+/*.my-content p, .my-content ul
+{
+	font-size: 80%;
+}*/
+
+/*Min CSS*/
+
+#page-home{
+	color: #FAFAFB;
+}
+
+.commentArea{
+	background-color: #F6F6F6;
+	padding: 10px;
+	border-radius: 3px;
+	margin-left: -10px; 
+	margin-right: -10px;
+	margin-bottom: -10px;
+	overflow:hidden ; /* minds inside and outside floatting elements, fine if no size given */
+}
+
+.comment{
+	background-color: white; 
+	border: 1px;
+	border-color: black;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1.5px 5px 0 rgba(0, 0, 0, 0.19);
+	color: black;
+	padding: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 80%;
+	border-radius: 3px;
+}
+
+h1{
+	font-size: 150%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+h2{
+	font-size: 80%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+h3{
+	font-size: 80%;
+	color: grey;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.text{
+	font-size: 100%;
+}
+
+.textInput{
+	width: 98%; 
+	min-height: 50px;
+    font-size: 16px;
+	border-radius: 4px;
+	border: 1px solid #3A3C3E;
+}
+
+#page-home{
+	background-color: black;
+	height:100vh;  /*1vh = 1% av viewportens (alltså displayens) höjd*/
+	color: white;
+}
+
+#logo{
+	width: 60%;
+	padding-top: 10px;
+	margin: auto;
+	display: block;
+}
+
+/*input {
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+}*/
+
+button {
+	display: inline-block;
+	float: right;
+	position: relative;
+	color: #3681F2;
+	background-color: white;
+	text-shadow: 0 1px 0 rgba(255,255,255, 0.8);
+	text-decoration: none;
+	text-align: center;
+	padding: 8px 12px;
+	font-size: 12px;
+	font-weight: 700;
+	font-family: helvetica, arial, sans-serif;
+	border-radius: 4px;
+	border: 1px solid #bcbcbc;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#menu{
+	color: white;
+	background-color: #23231E;
+	position:fixed;
+    left:0px;
+    bottom:0px;
+    height:50px;
+    width:100%;
+}
+
+.menuDiv{
+	display: inline-block;
+	width: 32%;
+	margin: auto;
+	line-height: 50px;
+	text-align: center;
+}
+
+/*.icon{
+	height: 50px;
+	width:50;
+}*/
+
+.menuDiv img {
+    width: 30%;
+    height: auto;
+    margin-top: 10px;
