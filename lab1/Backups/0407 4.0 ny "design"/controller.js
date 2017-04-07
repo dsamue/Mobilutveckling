@@ -8,8 +8,6 @@ var erlands = {lat:59.340487 , lng:18.040420};
 var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 
 $('#navigation').hide();
-$('#placesMenu').hide();
-$('#settingsMenu').hide();
 
 
 //Basic navigation
@@ -90,21 +88,21 @@ function toggleBounce() {
 }
 
 
-//Remove loading screen and show content 
 function displayContent(){ 
   document.getElementById("loading").remove()
 
-  //Hint about app if run in browser
-  if (window.navigator.standalone) {} 
-  else {setTimeout(function(){confirm('Consider adding this web app to your homescreen!')}, 2000);} 
+  if (window.navigator.standalone) {
+  } 
+
+  else {
+    setTimeout(function(){confirm('Consider adding this web app to your homescreen!')}, 2000);
+  } 
 
   document.getElementById("mainContent").style.visibility = 'visible';
 }
 
-
-
-
 function initMap() {
+
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: kth, 
@@ -144,8 +142,6 @@ function initMap() {
     title: "Erlands Bar"
   });
 
-
-
   //info for Erlands
   var contentString1 = '<div id="content">'+
     '<div id="siteNotice">'+
@@ -159,8 +155,6 @@ function initMap() {
     content: contentString1
   });
 
-
-
   //Info for Humlegården
   var contentString2 = '<div id="content">'+
     '<div id="siteNotice">'+
@@ -173,8 +167,6 @@ function initMap() {
   var infowindow2 = new google.maps.InfoWindow({
     content: contentString2
   });
-
-
 
   //Marker interactions
   marker.addListener('click', toggleBounce);
@@ -193,21 +185,7 @@ function initMap() {
 }
 
 
-
-
-//Menu Interaction
+//Interaction
 $('#navigate').click(function(){
   $('#navigation').toggle();
-})
-
-$('#places').click(function(){
-  $('#placesMenu').toggle();
-})
-
-$('#settings').click(function(){
-  $('#settingsMenu').toggle();
-})
-
-$('.placeButton').click(function(){
-  $('#placesMenu').hide();
 })

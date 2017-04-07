@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="utf-8">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="apple-touch-startup-image" href="test-small.png">
+    <link rel="apple-touch-icon" href="app-icon-2.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="app-icon-small-2.png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+
+    <div id="loading" style="text-align:center;">
+      <h1 class="logo">SimpleMap</h1>
+      <div id="loadingSymbol">
+      </div>
+    </div>
+
+    <div id=mainContent>
+        <div id="map"></div>
+
+          <div id="navigation">
+            <button class='navButton' onclick="moveUp()">Up</button>
+            <button class='navButton' onclick="moveDown()">Down</button>
+            <button class='navButton' onclick="moveLeft()">Left</button>
+            <button class='navButton' onclick="moveRight()">Right</button>
+          </div>
+
+<!--         <button class='button' onclick="moveUp()">Move Up</button>
+        <button class='button' onclick="moveDown()">Move Down</button>
+        <button class='button' onclick="moveLeft()">Move Left</button>
+        <button class='button' onclick="moveRight()">Move Right</button> -->
+
+        <button class='button' onclick="zoomIn()">Zoom In</button>
+        <button class='button' onclick="zoomOut()">Zoom out</button>
+        <button class='button' onclick="moveCenter(erlands)">Erlands Bar</button>
+        <button class='button' onclick="moveCenter(humle)">Humlegården</button>
+        <button class='button' onclick="showLocation()">Show my position</button>
+        <button class='button' onclick="setTilt()">Toggle tilt</button>
+
+<!--         <div id="navigation-bar">
+            <div class="navigationDiv" id="up">
+                Up
+            </div>
+
+            <div class="navigationDiv" id="down">
+                Down
+            </div>
+
+            <div class="navigationDiv" id="left">
+                Left
+            </div>
+
+            <div class="navigationDiv" id="right">
+                Right
+            </div>
+          </div> -->
+
+
+
+          <div id="menu">
+            <div class="menuDiv" id="navigate">
+                Navigate
+            </div>
+
+            <div class="menuDiv" id="places">
+<!--               <img class="icon" src="icons/explore-icon.png"/> -->
+                Places
+            </div>
+
+            <div class="menuDiv" id="settings">
+<!--               <img class="icon" src="icons/favorites-icon.png"/> -->
+                Settings
+            </div>
+          </div>
+    </div>
+
+    <script src="controller.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOlm1LNvpqbDRtsaziPqTuVOkjfZW95Wk&callback=initMap" async defer></script>
+  </body>
+</html>
