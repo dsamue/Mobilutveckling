@@ -311,7 +311,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 1744,
+				"buffer_size": 2331,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -320,7 +320,7 @@
 			"file": "controller.js",
 			"settings":
 			{
-				"buffer_size": 5858,
+				"buffer_size": 4421,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -329,7 +329,8 @@
 			"file": "style.css",
 			"settings":
 			{
-				"buffer_size": 2475,
+				"buffer_size": 3273,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -370,6 +371,8 @@
 	],
 	"file_history":
 	[
+		"/Users/David/Desktop/KTH/XML/Extralab svg/simple-2.1 kompletterad.svg",
+		"/Users/David/Desktop/KTH/XML/Lab4/xpath-ex7-1.3.xsl",
 		"/Users/David/Desktop/IVIS backup/Master1.7 170329 Efter redovisning, innan sqrt-merge/js/draw_chart.js",
 		"/Users/David/Desktop/KTH/Github/Mobilutveckling/lab1/style.css",
 		"/Users/David/Desktop/KTH/Github/Mobilutveckling/lab1/controller.js",
@@ -495,9 +498,7 @@
 		"/Users/David/Desktop/Github/ng-sortable/source/ng-sortable.css",
 		"/Users/David/Downloads/Dragger (1)/index.html",
 		"/Users/David/Downloads/Dragger (1)/home.html",
-		"/Users/David/Desktop/Github/intprog-projekt/map.html",
-		"/Users/David/Desktop/Github/intprog-projekt/map-character.html",
-		"/Users/David/Desktop/Github/intprog-projekt/MapView.js"
+		"/Users/David/Desktop/Github/intprog-projekt/map.html"
 	],
 	"find":
 	{
@@ -633,15 +634,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1744,
+						"buffer_size": 2331,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								796,
-								796
+								1390,
+								1390
 							]
 						],
 						"settings":
@@ -663,15 +664,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5858,
+						"buffer_size": 4421,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4671,
-								4671
+								2566,
+								2573
 							]
 						],
 						"settings":
@@ -681,7 +682,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3169.0,
+						"translation.y": 1690.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -693,15 +694,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2475,
+						"buffer_size": 3273,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								439,
+								439
 							]
 						],
 						"settings":
