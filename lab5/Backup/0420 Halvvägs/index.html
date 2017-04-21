@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no,
+        shrink-to-fit=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Getting some data from a json API</title>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- This script, cordova.js,  is built into Evothings Viewer (i.e. you won't need to add this file to your project) The idea is to pick up a http resource, even if you're using https, which would normally create a cross-protocol violation. The HTTP plug-in from Apache Cordova allows this to be carried out, see especially this post: https://evothings.com/evothings-secured-now-serving-over-https/ -->
+
+    <script src="cordova.js"></script>
+
+
+    <!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+
+    <script>
+    // Redirect console.log to Evothings Workbench, so you can see data under 'Tools'
+    if (window.hyper && window.hyper.log) { hyper.log = console.log }
+    </script>
+</head>
+
+ 
+
+<body>
+<script>
+
+// Create an empty sensor object as a global 
+var sensor = {};
+
+// Where the sensor data is stored
+var mSensorDataURL = 'http://backup.evothings.com:8082/output/';
+
+// A subscriber's key (Five other keys also availble at http://smartspaces.r1.kth.se:8082)
+sensor.key = "J3Wgj9qegGFX4r9KlxxGfaeMXQB";
+
+// A bitmap image describing where the sensor is located
+sensor.image = "https://evothings.com/demos/dome_pics/IMG_1758.JPG";
+
+var temperatures = [],
+	humidity = [],
+	co2 = [],
+	pressure = [];
+
+var sumof_temperatures = 0,
+	sumof_humidity = 0,
+	sumof_co2 = 0,
+	sumof_pressure = 0,
+    lengthOfQueries = 0;
+
+
+// Function to retrieve data, placing it in a "response" object
+function getJSON() 
+    {
+    if (window.cordova) 
+        {
+            console.log('Using Apache Cordova HTTP GET function');
+            cordovaHTTP.get(
+                mSensorDataURL + sensor.key + '.json?gt[timestamp]=now-1day&page=1',
+                function (response) 
+                    {
+                        if (response) 
+                            {
+                                sensor.data = JSON.parse(response.data)[0];
+                                sensor.fullData = JSON.parse(response.data);
+                                printData();
+                            }
+                    },
+                function (error) 
+                    {
+                    console.log(JSON.stringify(error));
+                    });
+        }    
+    else 
+        {
+            console.log('Not using Cordova, fallback to AJAX via jquery');
+            
+            
+            $.ajax({
+                   // url: mSensorDataURL + sensor.key + ".json?gt[timestamp]=now- 1day",
+                    url: mSensorDataURL + sensor.key + '.json?gt[timestamp]=now-1day&page=1&limit=200',
+                    jsonp: "callback",
+                    cache: true,
+                    dataType: "jsonp",
+                    data: 
+                        {
+                            page: 1
+                        },
+                    success: function(response) 
+                        {
+                        	console.log(response)
+                            if (response && response[0]) 
+                                {
+                                    sensor.data = response[0];
+                                    sensor.fullData = response;
+                                    printData();
+                                }
+                        }
+                });
+        }
+}
+
+
+function printData()    
+    {
+        if (sensor && sensor.data) 
+            {
+            // Display the info.
+            	var movementFound = 0;
+                html = '<h1>Sensor Data</h1>';
+                for ( var i = 0; i < sensor.fullData.length; i++ ){
+	                //html += '<br /><div id="time">Time  ' + sensor.fullData[i].timestamp + '</div>';
+//	                html += '<div id="hum">Humidity ' + sensor.fullData[i].h + ' % (rel)</div>';
+	 //               html += '<div id="temp">Temperature ' + sensor.fullData[i].t + ' celcius</div>';
+
+	                // Check if a movement has been made.
+	                if( parseInt(sensor.fullData[i].pp) > 0 )
+	                	movementFound++;
+
+	                // Temperatures
+            		sumof_temperatures += parseInt(sensor.fullData[i].t);
+	                temperatures.push(sensor.fullData[i].t);
+
+	                // Humidity (fuktighet)
+            		sumof_humidity += parseInt(sensor.fullData[i].h);
+	                humidity.push(sensor.fullData[i].h);
+
+	                // Co2 (Koldioxid)
+            		sumof_co2 += parseInt(sensor.fullData[i].c);
+	                co2.push(sensor.fullData[i].c);
+
+	                // Barometric pressure (Lufttryck)
+            		sumof_pressure += parseInt(sensor.fullData[i].p);
+	                pressure.push(sensor.fullData[i].p);
+
+                }
+              //  html += '<img src="' + sensor.image + '" />';
+                html += '<div id="mean"><h5>Mean value for the past 2 hours</h5>';
+                html += '<strong>- Temperature:</strong> '+ sumof_temperatures / sensor.fullData.length +' C<br />';
+                html += '<strong>- Humidity:</strong> '+ sumof_humidity / sensor.fullData.length +' %<br>';
+                html += '<strong>- Co2 :</strong> '+ sumof_co2 / sensor.fullData.length +' (Unit?)<br>';
+                html += '<strong>- Pressure:</strong> '+ sumof_pressure / sensor.fullData.length +' Pa</div>';
+                lengthOfQueries = sensor.fullData.length;
+        	} 
+    	else 
+            {
+                html = '<h1>Sensor Data</h1>'
+                 + '<br />Sorry, sensor data not available right now :(</br>'
+                 + '<img src="' + sensor.image + '" />'
+            }
+    	document.getElementById("printHere").innerHTML= html;
+    }
+
+    getJSON();
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Humidity', sumof_humidity/lengthOfQueries],
+          ['', 100-(sumof_humidity/lengthOfQueries)]
+          // ['Work',     sumof_co2/lengthOfQueries],
+          // ['noco2', 100-(sumof_co2/lengthOfQueries)]
+        ]);
+
+        var options = {
+          title: 'Humidity',
+          legend: 'none',
+          slices: {
+            0: { color: '#31569F', pieSliceText: 'Humidity' },
+            1: { color: '#C9D9E9', pieSliceText: 'none' }
+          }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+
+
+</script>
+
+	<div class="row">
+		<div class="col s12 m8">
+			<div id="printHere"></div>
+            <div id="piechart" style="width: 100%; height: auto;"></div>
+		</div>
+		<div class="col s12 m4">
+			<h3>Sidebar	</h3>
+			<div class="s12">
+				Created by Persson and Samuelsson
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -308,29 +308,11 @@
 	"buffers":
 	[
 		{
-			"contents": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <link rel=\"stylesheet\" href=\"libs/onsen/css/onsenui.css\"/>\n    <link rel=\"stylesheet\" href=\"libs/onsen/css/onsen-css-components.css\"/>\n    <link rel=\"stylesheet\" href=\"style.css\"/>\n    <script src=\"libs/onsen/js/onsenui.js\"></script>\n    <script src=\"libs/jquery-3.2.1.min.js\"></script>\n    <script>\n\t  //ons.platform.select('android')\n\t  ons.platform.select('ios')\n\t</script>\n  \n  </head>\n\t<body>\n\n\t\t<!-- The navigator object holds pages -->\n\n\t\t<ons-navigator class=\"appNavigator\" page=\"pageMain.html\"></ons-navigator>\n\n\t\t<!-- This is the first page, naming convention is to use .\"html\" for page templates (they can also be placed in separate files, so this makes kind of sense). -->\n\n\t\t<ons-template id=\"pageMain.html\">\n\t\t  <ons-page id=\"pageMain\">\n\t\t    <ons-toolbar>\n\t\t      <div class=\"center\">JS Mobile Frameworks</div>\n\t\t    </ons-toolbar>\n\t\t    <ons-list>\n\t\t      <ons-list-item onclick=\"showPage('pageIntroduction.html')\" modifier=\"chevron\" tappable>\n\t\t        Introduction\n\t\t      </ons-list-item>\n\t\t      <ons-list-item onclick=\"showPage('pageOverview.html')\" modifier=\"chevron\" tappable>\n\t\t        JS Frameworks Overview\n\t\t      </ons-list-item>\n\t\t      <ons-list-item onclick=\"showPage('pageJSHints.html')\" modifier=\"chevron\" tappable>\n\t\t        JavaScript Hints and Tricks\n\t\t      </ons-list-item>\n\t\t    </ons-list>\n\t\t  </ons-page>\n\t\t</ons-template>\n\n\t\t<ons-template id=\"pageIntroduction.html\">\n\t\t  <ons-page id=\"pageIntroduction\">\n\t\t    <ons-toolbar>\n\t\t      <div class=\"left\"><ons-back-button>Menu</ons-back-button></div>\n\t\t      <div class=\"center\">Introduction</div>\n\t\t    </ons-toolbar>\n\t\t    <div class=\"page-content\">\n\t\t      <h1>JavaScript Frameworks for Mobile Development</h1>\n\t\t      <p>Welcome to this lecture</p>\n\t\t    </div>\n\t\t  </ons-page>\n\t\t</ons-template>\n\n\t\t<ons-template id=\"pageOverview.html\">\n\t\t  <ons-page id=\"pageOverview\">\n\t\t    <ons-toolbar>\n\t\t      <div class=\"left\"><ons-back-button>Menu</ons-back-button></div>\n\t\t      <div class=\"center\">Overview</div>\n\t\t    </ons-toolbar>\n\t\t    <div class=\"page-content\">\n\t\t     <p>Overview of JS frameworks</p>\n\t\t    </div>\n\t\t  </ons-page>\n\t\t</ons-template>\n\n\t\t<ons-template id=\"pageJSHints.html\">\n\t\t  <ons-page id=\"pageJSHints\">\n\t\t    <ons-toolbar>\n\t\t      <div class=\"left\"><ons-back-button>Menu</ons-back-button></div>\n\t\t      <div class=\"center\">JavaScript Hints and Tricks</div>\n\t\t    </ons-toolbar>\n\t\t    <div class=\"page-content\">\n\t\t      <p>JavaScript has some glitches that are good to know about</p>\n\t\t    </div>\n\t\t  </ons-page>\n\t\t</ons-template>\n\n\t\t<script>\n\t\tfunction showPage(page) {\n\t\t  // jQuery returns an array of DOM objects, we want the first DOM object\n\t\t  // which is the have that has the pushPage function.\n\t\t  $('.appNavigator')[0].pushPage(page)\n\t\t}\n\t\t</script>\n\t</body>\n</html>\n",
 			"file": "index.html",
-			"file_size": 2856,
-			"file_write_time": 131368946780000000,
 			"settings":
 			{
-				"buffer_size": 2856,
-				"encoding": "UTF-8",
-				"line_ending": "Unix",
-				"name": "index.html"
-			}
-		},
-		{
-			"contents": ".page-content {\npadding: 10px;\n}",
-			"file": "style.css",
-			"file_size": 32,
-			"file_write_time": 131368946530000000,
-			"settings":
-			{
-				"buffer_size": 32,
-				"encoding": "UTF-8",
-				"line_ending": "Unix",
-				"name": ".page-content {"
+				"buffer_size": 4259,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -364,8 +346,13 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/Users/David/Desktop/KTH/Github/Mobilutveckling/lab5"
+	],
 	"file_history":
 	[
+		"/Users/David/Desktop/KTH/Github/Mobilutveckling/lab3/lab3/index.html",
 		"/Users/David/Downloads/jquery-3.2.1.min.js",
 		"/Users/David/Downloads/jquery-3.2.1.js",
 		"/Users/David/Downloads/jquery-3.2.1.slim.js",
@@ -492,8 +479,7 @@
 		"/Users/David/Desktop/Github/ng-sortable/source/sortable.js",
 		"/Users/David/Desktop/Github/ng-sortable/dist/ng-sortable.min.js",
 		"/Users/David/Desktop/Github/ng-sortable/source/ng-sortable.css",
-		"/Users/David/Downloads/Dragger (1)/index.html",
-		"/Users/David/Downloads/Dragger (1)/home.html"
+		"/Users/David/Downloads/Dragger (1)/index.html"
 	],
 	"find":
 	{
@@ -513,6 +499,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"content",
+			"menu",
 			"chart",
 			"=",
 			"controlUI.style.",
@@ -629,36 +617,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2856,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								247,
-								247
-							]
-						],
-						"settings":
-						{
-							"auto_name": "index.html",
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "style.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 32,
+						"buffer_size": 4259,
 						"regions":
 						{
 						},
@@ -671,14 +630,15 @@
 						],
 						"settings":
 						{
-							"auto_name": ".page-content {",
-							"syntax": "Packages/CSS/CSS.sublime-syntax"
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -720,7 +680,7 @@
 		"height": 0.0
 	},
 	"pinned_build_system": "",
-	"project": "lab3.sublime-project",
+	"project": "lab5.sublime-project",
 	"replace":
 	{
 		"height": 48.0

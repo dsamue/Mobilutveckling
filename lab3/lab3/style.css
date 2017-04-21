@@ -1,0 +1,20 @@
+.page-content {
+padding: 10px;
+}
+
+.list-item__center,
+ul li {
+	list-style-type: square;
+	font-size: 20px;
+}
+.tabbar,
+.customColoring {
+	color: #FFF;
+    background: #4384cd;
+}
+.about {
+	background: #333;
+	color: #FFF;
+	margin-right: 10px;
+	font-size: 20px;
+}

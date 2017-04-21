@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="libs/onsen/css/onsenui.css"/>
+    <link rel="stylesheet" href="libs/onsen/css/onsen-css-components.css"/>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="libs/onsen/js/onsenui.js"></script>
+    <script src="libs/jquery-3.2.1.min.js"></script>
+    <script>
+	  ons.platform.select('android')
+	  //ons.platform.select('ios')
+	</script>
+  
+  </head>
+	<body>
+
+		<!-- The navigator object holds pages -->
+		<ons-navigator class="appNavigator" page="splitter.html"></ons-navigator>
+
+			<!-- This is the first page, naming convention is to use ."html" for page templates (they can also be placed in separate files, so this makes kind of sense). -->
+			<ons-tabbar>
+			  <ons-tab icon="ion-information" label="About" page="about.html" active="true">
+			  </ons-tab>
+			  <ons-tab icon="ion-android-walk" label="Feet" page="FeelYourFeet.html"></ons-tab>
+			  <ons-tab icon="ion-ios-body" label="Shoulders" page="FeelYourShoulders.html"></ons-tab>
+			  <ons-tab icon="ion-person" label="Face" page="FeelYourFace.html"></ons-tab>
+			</ons-tabbar>
+
+			<ons-template id="splitter.html">
+				<ons-splitter>
+				  <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable>
+					<ons-page>
+					    <ons-list>
+					      <ons-list-item onclick="fn.load('FeelYourFeet.html')" modifier="chevron" tappable>
+					        Feel Your Feet
+					      </ons-list-item>
+					      <ons-list-item onclick="fn.load('FeelYourShoulders.html')" modifier="chevron" tappable>
+					        Feel Your Shoulders
+					      </ons-list-item>
+					      <ons-list-item onclick="fn.load('FeelYourFace.html')" modifier="chevron" tappable>
+					        Feel Your Face
+					      </ons-list-item>
+					      <ons-list-item onclick="fn.load('about.html')" modifier="chevron" tappable>
+					        About
+					      </ons-list-item>
+					    </ons-list>
+					  </ons-page>
+				  </ons-splitter-side>
+				  <ons-splitter-content id="content" page="about.html"></ons-splitter-content>
+				</ons-splitter>
+			</ons-template>
+
+		
+
+
+<!-- 		<ons-template id="pageMain.html">
+		  <ons-page id="pageMain">
+
+		    <ons-toolbar class="customColoring">
+		      <div class="left">
+		        <ons-toolbar-button onclick="fn.open()">
+		          <ons-icon icon="md-menu"></ons-icon>
+		        </ons-toolbar-button>
+		      </div>
+		      <div class="center">Relaxation</div>
+		    </ons-toolbar>
+
+		    <ons-list>
+		      <ons-list-item onclick="showPage('FeelYourFeet.html')" modifier="chevron" tappable>
+		        Feel Your Feet
+		      </ons-list-item>
+		      <ons-list-item onclick="showPage('FeelYourShoulders.html')" modifier="chevron" tappable>
+		        Feel Your Shoulders
+		      </ons-list-item>
+		      <ons-list-item onclick="showPage('FeelYourFace.html')" modifier="chevron" tappable>
+		        Feel Your Face
+		      </ons-list-item>
+		      <ons-list-item onclick="showPage('about.html')" modifier="chevron" tappable>
+		        About
+		      </ons-list-item>
+		    </ons-list>
+		  </ons-page>
+		</ons-template> -->
+
+		<ons-template id="FeelYourFeet.html">
+		  <ons-page id="FeelYourFeet">
+		    <ons-toolbar class="customColoring">
+		      <div class="center">Feel Your Feet</div>
+		      <div class="right">
+		      	<ons-toolbar-button tappable onclick="showDialog('dialog-1')">
+		      		Help <span class="ion-help"></span>
+		      	</ons-toolbar-button>
+		      </div>
+		    </ons-toolbar>
+		    <div class="page-content">
+		    	<ons-switch></ons-switch>
+		      <h1>Feel Your Feet</h1>
+		        <p>
+					<ul>
+						<li>Stand on your feet.</li>
+						<li>Experience the contact with the ground.</li>
+						<li>Feel into the soles of the feet.</li>
+						<li>Feel the knees.</li>
+						<li>The hips.</li>
+						<li>The spine.</li>
+						<li>Shoulders.</li>
+						<li>Neck.</li>
+						<li>Head.</li>
+						<li>Feel the connection between the top of the head and the feet.</li>
+					</ul>
+				</p>
+		    </div>
+		  </ons-page>
+		</ons-template>
+
+		<ons-template id="FeelYourShoulders.html">
+		  <ons-page id="FeelYourShoulders">
+		  <ons-toolbar class="customColoring">
+		      <div class="left">
+		        <ons-toolbar-button onclick="fn.open()">
+		          <ons-icon icon="md-menu"></ons-icon>
+		        </ons-toolbar-button>
+		      </div>
+		      <div class="center">Feel Your Shoulders</div>
+		      <div class="right">
+		      	<ons-toolbar-button tappable onclick="showDialog('dialog-1')">
+		      		Help <span class="ion-help"></span>
+		      	</ons-toolbar-button>
+		      </div>
+		    </ons-toolbar>
+		    <div class="page-content">
+		    	<ons-switch></ons-switch>
+		    <h1>Feel Your Shoulders</h1>
+				<p>
+					<ul>
+						<li>Let your arms hang loose.</li>
+						<li>Become aware of the shoulders.</li>
+						<li>Slightly lift one shoulder and release it.</li>
+						<li>Let the shoulder come all the way down.</li>
+						<li>Lift the other shoulder and release it.</li>
+						<li>Alternate three more times on each side.</li>
+						<li>Experience the breath flowing in and out of the body.</li>
+					</ul>
+				</p>
+		    </div>
+		  </ons-page>
+		</ons-template>
+
+		<ons-template id="FeelYourFace.html">
+		  <ons-page id="FeelYourFace">
+		    <ons-toolbar class="customColoring">
+		      <div class="center">Feel Your Face</div>
+		      <div class="right">
+		      	<ons-toolbar-button tappable onclick="showDialog('dialog-1')">
+		      		Help <span class="ion-help"></span>
+		      	</ons-toolbar-button>
+		      </div>
+		    </ons-toolbar>
+		    <div class="page-content">
+		    	<ons-switch></ons-switch>
+		      <h1>Feel Your Face</h1>
+				<p>
+					<ul>
+						<li>Become aware of your face.</li>
+						<li>Feel the forehead.</li>
+						<li>The eyebrows.</li>
+						<li>Eyes.</li>
+						<li>Nose.</li>
+						<li>Nostrils.</li>
+						<li>Air flowing through the nostrils.</li>
+						<li>Cheeks.</li>
+						<li>Jaw.</li>
+						<li>Lips.</li>
+						<li>Tongue.</li>
+						<li>Whole of the head.</li>
+						<li>The space surrounding the head.</li>
+					</ul>
+				</p>
+		    </div>
+		  </ons-page>
+		</ons-template>		
+
+		<ons-template id="about.html">
+		  <ons-page id="about">
+		    <ons-toolbar class="customColoring">
+		      <div class="center">About</div>
+		      <div class="right">
+		      	<ons-toolbar-button tappable onclick="showDialog('dialog-1')">
+		      		Help <span class="ion-help"></span>
+		      	</ons-toolbar-button>
+		      </div>
+		    </ons-toolbar>
+		    <div class="page-content">
+		      <h1>About</h1>
+				<p>
+					<strong>Relaxation is the way to go.</strong><br>
+					The lab group consists of two master students studying Masters in interactive media technology.
+				</p>
+		    </div>
+		  </ons-page>
+		</ons-template>
+
+		<ons-dialog id="dialog-1">
+			<div style="text-align: right; padding:5px" class="right ion-close" onclick="hideDialog('dialog-1')">
+				Close
+			</div>
+			<div style="text-align:center; padding:10px;">
+				Hello a simple dialog here...
+			</div>
+		</ons-dialog>
+
+		<script>
+		function showPage(page) {
+		  // jQuery returns an array of DOM objects, we want the first DOM object
+		  // which is the have that has the pushPage function.
+		  $('.appNavigator')[0].pushPage(page)
+		}
+		var showDialog = function(id){
+			document.getElementById(id).show();
+		}
+		var hideDialog = function(id){
+			document.getElementById(id).hide();
+		}
+
+		window.fn = {};
+
+		window.fn.open = function() {
+		  var menu = document.getElementById('menu');
+		  menu.open();
+		};
+
+		window.fn.load = function(page) {
+		  var content = document.getElementById('content');
+		  var menu = document.getElementById('menu');
+		  content.load(page)
+		    .then(menu.close.bind(menu));
+		};
+		</script>
+	</body>
+</html>
